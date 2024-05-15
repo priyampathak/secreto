@@ -6,6 +6,7 @@ import face_neck from '../../.././public/home-image/face-neck.jpg'
 import under_eye from '@/public/home-image/under-eye.jpg'
 import body from '@/public/home-image/body.jpg'
 import med_spa from '@/public/home-image/med-spa.jpg'
+import serum from '@/public/home-image/serum.webp'
 import Image from 'next/image';
 
 function Page() {
@@ -43,18 +44,18 @@ function Page() {
   return (
     <>
       <div className="py-6 overflow-hidden">
-        <div className="fixed top-0 pt-8 left-0 w-full flex px-20 pb-8 z-50 text-white"
+        <div className="fixed top-0 pt-4 left-0 w-full flex px-20 pb-4 z-50 text-white"
           style={{ backgroundColor: navbarBgColor, transition: 'background-color 0.5s' }}>
           <div className="w-1/3">
-            <h2 className="text-3xl font-semibold">CARMELL</h2>
+            <h2 className="text-2xl font-semibold">CARMELL</h2>
           </div>
           <div className="w-1/3 flex justify-center">
-            <h2 className="text-2xl pr-5">Science</h2>
-            <h2 className="text-2xl pr-5">Shop</h2>
-            <h2 className="text-2xl pr-5">Corporate</h2>
+            <h2 className="text-xl pr-5">Science</h2>
+            <h2 className="text-xl pr-5">Shop</h2>
+            <h2 className="text-xl pr-5">Corporate</h2>
           </div>
           <div className="w-1/3 flex justify-end">
-            <h2 className="text-2xl pr-7">Cart</h2>
+            <h2 className="text-xl pr-7">Cart</h2>
             {/* <h2 className="text-2xl pr-5 border-white border-2 rounded-md flex px-4">Signin</h2> */}
             <a href={'/pages/login'}><FaRegUser className="h-7 w-7 flex "/></a>
           </div>
@@ -82,8 +83,7 @@ function Page() {
           <p className="text-5xl font-light">Carmell Collections</p>
           <div style={{ height: '120px' }}></div>
         </div>
-         {/* Mid portion face neck */}
-
+        {/* start of 4 slide images */}
         <div className="mx-20 flex">
           <div className="w-1/4 relative mr-6 h-5/6">
             <Image src={face_neck} height={300} width={300} className="rounded-sm"/>
@@ -109,6 +109,36 @@ function Page() {
               <h1 className="text-center bg-black bg-opacity-20 w-full p-2 font-medium">Med Spa</h1>
             </div>
           </div>
+        </div>
+        {/* end of 4 slide images */}
+
+        {/* start of serum */}
+        <div className="flex w-screen  mx-10">
+          <div className="w-1/2">
+          <Image 
+            src={serum}
+            width={650} 
+            height={600} 
+          />
+          </div>
+          <div className="w-1/2 py-14 pl-10">
+            <h1 className="text-4xl py-4">
+              Carmell Club
+            </h1>
+            <ul class="list-disc ml-4 w-3/5 text-gray-500">
+              <li className="py-2">The Carmell Club is a community of discerning beauty icons who demand high-performance, luxury skincare. We expect better than mass market products.</li>
+              <li className="py-2">Our members are powerful, busy people with no time for fussy and incomplete skincare routines.</li>
+              <li className="py-2">Our members have access to the best professional insights and science.</li>
+              <li className="py-2">Our skincare reflects our commitment to a healthy lifestyle that extends our love and enjoyment of the la dolce vita.</li>
+            </ul>
+            <button className=" border-black p-3 px-5 text-black my-4 hover:bg-gray-700 hover:text-white" style={{borderWidth: '1px'}}>
+                Learn More
+            </button>
+          </div>
+          {/* end of serum */}
+          {/* <div className="flex w-screen my-8 mx-10">
+
+          </div> */}
         </div>
       </div>
     </>
