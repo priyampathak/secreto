@@ -2,6 +2,8 @@
 import Navbar from '@/app/components/Navbar'
 import React, { useEffect, useRef, useState } from 'react'
 import { FaRegUser } from "react-icons/fa";
+import { CiSearch } from "react-icons/ci";
+import { IoBagHandleOutline } from "react-icons/io5";
 import face_neck from '../../.././public/home-image/face-neck.jpg'
 import under_eye from '@/public/home-image/under-eye.jpg'
 import body from '@/public/home-image/body.jpg'
@@ -56,9 +58,11 @@ function Page() {
             <h2 className="text-xl pr-5">Corporate</h2>
           </div>
           <div className="w-1/3 flex justify-end">
-            <h2 className="text-xl pr-7">Cart</h2>
+
+          <CiSearch className="h-6 w-6 flex mx-3"/>
+          <IoBagHandleOutline className="h-6 w-6 flex mx-3"/>
             {/* <h2 className="text-2xl pr-5 border-white border-2 rounded-md flex px-4">Signin</h2> */}
-            <a href={'/pages/login'}><FaRegUser className="h-7 w-7 flex "/></a>
+            <a href={'/pages/login'}><FaRegUser className="h-5 w-5 mx-3 mt-1"/></a>
           </div>
         </div>
         {/* End of navbar */}
@@ -163,7 +167,7 @@ function Page() {
           <div className="w-screen py-10">
             <h1 className="text-center text-3xl font-medium">Carmell Cosmetics Complete Care</h1>
             <div>
-              
+
             </div>
           </div>
       </div>
