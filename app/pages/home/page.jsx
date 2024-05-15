@@ -131,7 +131,7 @@ function Page() {
               <li className="py-2">Our members have access to the best professional insights and science.</li>
               <li className="py-2">Our skincare reflects our commitment to a healthy lifestyle that extends our love and enjoyment of the la dolce vita.</li>
             </ul>
-            <button className=" border-black p-3 px-5 text-black my-4 hover:bg-gray-700 hover:text-white" style={{borderWidth: '1px'}}>
+            <button className=" border-black p-3 px-5 text-black my-4 hover:bg-orange-500 hover:text-white" style={{borderWidth: '1px'}}>
                 Learn More
             </button>
           </div>
