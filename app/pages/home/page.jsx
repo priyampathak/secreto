@@ -43,10 +43,10 @@ function Page() {
   return (
     <>
       <div className="py-6 overflow-hidden">
-        <div className="fixed top-0 pt-6 left-0 w-full flex px-20 border-b-2 pb-8 z-50 text-white"
+        <div className="fixed top-0 pt-8 left-0 w-full flex px-20 pb-8 z-50 text-white"
           style={{ backgroundColor: navbarBgColor, transition: 'background-color 0.5s' }}>
           <div className="w-1/3">
-            <h2 className="text-3xl font-semibold">SECRETO</h2>
+            <h2 className="text-3xl font-semibold">CARMELL</h2>
           </div>
           <div className="w-1/3 flex justify-center">
             <h2 className="text-2xl pr-5">Science</h2>
@@ -73,7 +73,7 @@ function Page() {
             }}
             className="absolute"
           >
-            <source src="/facespa.mp4" type="video/mp4" />
+            <source src="/Carmell-home.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
