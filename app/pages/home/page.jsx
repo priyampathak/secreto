@@ -7,6 +7,7 @@ import under_eye from '@/public/home-image/under-eye.jpg'
 import body from '@/public/home-image/body.jpg'
 import med_spa from '@/public/home-image/med-spa.jpg'
 import serum from '@/public/home-image/serum.webp'
+import blackwhite from '@/public/home-image/blackwhite.webp'
 import Image from 'next/image';
 
 function Page() {
@@ -113,7 +114,7 @@ function Page() {
         {/* end of 4 slide images */}
 
         {/* start of serum */}
-        <div className="flex w-screen  mx-10">
+        <div className="flex w-screen mx-10">
           <div className="w-1/2">
           <Image 
             src={serum}
@@ -134,12 +135,37 @@ function Page() {
             <button className=" border-black p-3 px-5 text-black my-4 hover:bg-orange-500 hover:text-white" style={{borderWidth: '1px'}}>
                 Learn More
             </button>
-          </div>
-          {/* end of serum */}
-          {/* <div className="flex w-screen my-8 mx-10">
-
-          </div> */}
+          </div>          
         </div>
+        {/* end of serum */}
+        {/* start of the balck and white */}
+        <div className="flex w-screen my-8 mx-12">
+            <div className="w-1/2">
+            <Image 
+              src={blackwhite}
+              width={650} 
+              height={600} 
+            />
+            </div>
+            <div className="w-1/2 py-14 pl-10">
+              <h1 className="text-4xl py-4 ">
+                Carmell Secretome<sup className=" text-black font-semibold text-base"><sup className=" font-extrabold text-base">TM</sup></sup>
+              </h1>
+              <p className="w-3/4 py-4 text-gray-500">
+              Carmell spent 7 years and over $60 million developing the Carmell Secretome containing 1000+ growth factors, proteins and peptides derived from Human Platelet Enriched Plasma.
+              </p>
+              <button className=" border-black p-3 px-5 text-black my-4 hover:bg-orange-500 hover:text-white" style={{borderWidth: '1px'}}>
+                Learn More
+              </button>
+            </div>
+          </div>
+          {/* end of the balck and white */}
+          <div className="w-screen py-10">
+            <h1 className="text-center text-3xl font-medium">Carmell Cosmetics Complete Care</h1>
+            <div>
+              
+            </div>
+          </div>
       </div>
     </>
   )
