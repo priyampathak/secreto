@@ -118,7 +118,7 @@ function Page() {
         {/* end of 4 slide images */}
 
         {/* start of serum */}
-        <div className="flex w-screen mx-10">
+        <div className="flex w-screen mx-10 my-6">
           <div className="w-1/2">
           <Image 
             src={serum}
