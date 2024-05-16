@@ -10,7 +10,15 @@ import body from '@/public/home-image/body.jpg'
 import med_spa from '@/public/home-image/med-spa.jpg'
 import serum from '@/public/home-image/serum.webp'
 import blackwhite from '@/public/home-image/blackwhite.webp'
+import no_foul from '@/public/no-foul.webp'
+import micro_emu from '@/public/micro-emu.webp'
 import Image from 'next/image';
+import reviews from '@/app/dummy-rev';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Footer from '@/app/components/Footer';
+
 
 function Page() {
   const videoRef = useRef(null);
@@ -44,6 +52,16 @@ function Page() {
     };
   }, []);
 
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000, // Adjust autoplay speed as needed (in milliseconds)
+  };
+  
   return (
     <>
       <div className="py-6 overflow-hidden">
@@ -166,11 +184,101 @@ function Page() {
           {/* end of the balck and white */}
           <div className="w-screen py-10">
             <h1 className="text-center text-3xl font-medium">Carmell Cosmetics Complete Care</h1>
-            <div>
 
+            {/* start of 4 videos */}
+            <div className="mx-20 my-16 flex">
+              <div className="w-1/4 mx-3">
+                <video autoPlay loop muted className=" h-72 w-72" style={{ borderTopLeftRadius: '6rem', borderTopRightRadius: '1rem',
+                  borderBottomRightRadius: '6rem', borderBottomLeftRadius: '1rem'
+                }} >
+                <source src="/carmell-spec.mp4" type="video/mp4" />
+                </video>
+                <h1 className="text-center pr-4 my-10 font-semibold text-lg">Carmell Secretome</h1>
+              </div>
+              <div className="w-1/4 mx-3">
+                <video autoPlay loop muted className=" h-72 w-72" style={{ borderTopLeftRadius: '6rem', borderTopRightRadius: '1rem',
+                  borderBottomRightRadius: '6rem', borderBottomLeftRadius: '1rem'
+                }} >
+                <source src="/bio-lipids.mp4" type="video/mp4" />
+                </video>
+                <h1 className="text-center pr-4 my-10 font-semibold text-lg">Bio Lipids</h1>
+              </div>
+              <div className="w-1/4 mx-3">
+                <video autoPlay loop muted className=" h-72 w-72" style={{ borderTopLeftRadius: '6rem', borderTopRightRadius: '1rem',
+                  borderBottomRightRadius: '6rem', borderBottomLeftRadius: '1rem'
+                }} >
+                <source src="/bio-hydration.mp4" type="video/mp4" />
+                </video>
+                <h1 className="text-center pr-4 my-10 font-semibold text-lg">Bio Hydration</h1>
+              </div>
+              <div className="w-1/4 mx-3">
+                <video autoPlay loop muted className=" h-72 w-72" style={{ borderTopLeftRadius: '6rem', borderTopRightRadius: '1rem',
+                  borderBottomRightRadius: '6rem', borderBottomLeftRadius: '1rem'
+                }} >
+                <source src="/carmell-spec.mp4" type="video/mp4" />
+                </video>
+                <h1 className="text-center pr-4 my-10 font-semibold text-lg">Carmell Secretome</h1>
+              </div>
+            </div>
+            {/* video of 4 videos */}
+          </div>
+          
+          {/* two arraow starts */}
+          <div className="mb-8 justify-center flex w-screen">
+            <div className="">
+              <Image src={no_foul} height={580} width={580} />
+            </div>
+            <div className="">
+              <Image src={micro_emu} height={580} width={580} />
             </div>
           </div>
+          {/* two arraow ends */}
+
+          {/* start backed by and doctor */}
+          <div className="w-screen my-24">
+            <div>
+                <h1 className="text-center text-gray-500">Backed By</h1>
+                <h1 className="text-center text-3xl">Leading Doctors</h1>
+            </div>
+          </div>
+          {/* start backed by and doctor */}
+
+          {/* start of slide show */}
+          <div className="w-screen">
+            <Slider {...settings} >
+              {reviews.map((review) => (
+                <div className="w-screen">
+                  <div key={review.id} className="p-4 w-6/6 mx-7 h-72 rounded-md shadow-lg shadow-gray-400 my-2" style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.4)' }}>
+                  <Image src={review.image} height={100} width={100} />
+                  <p className="my-6 text-gray-400">
+                    {review.review}
+                  </p>
+                  <h1 className="text-gray-400 italic">{review.name}</h1>
+                  </div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+          {/* start of slide show */}
+
+          {/* <div className="mx-28 flex">
+            {
+              reviews.map((review) => (
+                <div className="p-4 w-1/3 h-80 rounded-md shadow-lg shadow-gray-400 mx-4" style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.4)' }}>
+                  <Image src={review.image} height={100} width={100} />
+                  <p className="my-6 text-gray-400">
+                    {review.review}
+                  </p>
+                  <h1 className="text-gray-400 italic">{review.name}</h1>
+                </div>
+              ))
+            }
+            
+          </div> */}
+
+          
       </div>
+      <Footer />
     </>
   )
 }
