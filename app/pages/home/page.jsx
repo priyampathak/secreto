@@ -247,7 +247,7 @@ function Page() {
           <div className="w-screen">
             <Slider {...settings} >
               {reviews.map((review) => (
-                <div className="w-screen">
+                <div key={review.id} className="w-screen">
                   <div key={review.id} className="p-4 w-6/6 mx-7 h-72 rounded-md shadow-lg shadow-gray-400 my-2" style={{ boxShadow: '0 0 10px rgba(0, 0, 0, 0.4)' }}>
                   <Image src={review.image} height={100} width={100} />
                   <p className="my-6 text-gray-400">
