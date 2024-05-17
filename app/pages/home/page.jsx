@@ -45,11 +45,22 @@ function Page() {
     }
   };
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+
+  // Initial window width
+  setWindowWidth(window.innerWidth)
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
     };
+    
   }, []);
 
   const settings = {
@@ -61,10 +72,13 @@ function Page() {
     autoplay: true,
     autoplaySpeed: 2000, // Adjust autoplay speed as needed (in milliseconds)
   };
+
   
   return (
     <>
-      <div className="py-6 overflow-hidden">
+    {windowWidth < 1030 ? (
+        <Navbar />
+      ) : (
         <div className="fixed top-0 pt-4 left-0 w-full flex px-20 pb-4 z-50 text-white"
           style={{ backgroundColor: navbarBgColor, transition: 'background-color 0.5s' }}>
           <div className="w-1/3">
@@ -83,6 +97,10 @@ function Page() {
             <a href={'/pages/login'}><FaRegUser className="h-5 w-5 mx-3 mt-1"/></a>
           </div>
         </div>
+      )
+      }
+      <div className="py-6 overflow-hidden">
+        
         {/* End of navbar */}
         <div className="flex justify-center items-center overflow-hidden" style={{ height: '100vh' }}>
           <video
@@ -148,7 +166,7 @@ function Page() {
             <h1 className="text-4xl py-4">
               Carmell Club
             </h1>
-            <ul class="list-disc ml-4 w-3/5 text-gray-500">
+            <ul className="list-disc ml-4 w-3/5 text-gray-500">
               <li className="py-2">The Carmell Club is a community of discerning beauty icons who demand high-performance, luxury skincare. We expect better than mass market products.</li>
               <li className="py-2">Our members are powerful, busy people with no time for fussy and incomplete skincare routines.</li>
               <li className="py-2">Our members have access to the best professional insights and science.</li>

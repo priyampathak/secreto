@@ -1,6 +1,7 @@
 // pages/_app.js or _app.tsx
 import { Inter, Montserrat } from 'next/font/google';
 import './globals.css';
+import Authprovider from './components/AuthProvider/Authprovider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -17,10 +18,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+    
     <html lang="en">
       <body className={`${inter.className} ${montserrat.className}`}>
-        {children}
+        <Authprovider>
+          {children}
+        </Authprovider>
+          
       </body>
     </html>
+   
   );
 }
