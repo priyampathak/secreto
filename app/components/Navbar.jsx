@@ -1,29 +1,65 @@
-import React from 'react';
-import { FaRegUser } from "react-icons/fa";
-import { CiSearch } from "react-icons/ci";
-import { IoBagHandleOutline } from "react-icons/io5";
+import React, { useEffect, useState } from 'react';
+import { CiMenuFries } from "react-icons/ci";
+import { RxCross2 } from "react-icons/rx";
+
 
 function Navbar() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [menu, setMenu] = useState(0)
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    
+    // Cleanup function
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once when the component mounts
+
   return (
     <>
-      <div className="fixed top-0 pt-6 left-0 w-full flex px-20 border-b-2 pb-8 border-white bg-black text-white z-50">
-        <div className="w-1/3">
-          <h2 className="text-2xl font-semibold">CARMELL</h2>
+      <div className="w-screen h-auto overflow-hidden">
+        {/* code for dropdown menu */}
+        { menu == 1 ? 
+        (
+          <div className="w-screen h-80 bg-black py-6 px-6">
+            <div className="flex w-full">
+              <div className="w-1/2">
+                <h1 className="text-white text-xl">CARMELL</h1>
+              </div>
+              <div className="w-1/2 flex justify-end">
+                <h1 className="text-white " onClick={()=>{setMenu(0)}}><RxCross2 className="h-7 w-7"/></h1>
+              </div>
+            </div>
+            <div className="w-full flex justify-center my-8">
+              <div>
+                <h1 className="text-white text-lg text-center py-2">Science</h1>
+                <h1 className="text-white text-lg text-center py-2">Shop</h1>
+                <h1 className="text-white text-lg text-center py-2">Corporate</h1>
+                <h1 className="text-white text-lg text-center py-2">Cart</h1>
+                <h1 className="text-white text-lg text-center py-2">Profile</h1>
+              </div>
+            </div>
         </div>
-        <div className="w-1/3 flex justify-center">
-          <h2 className="text-xl pr-5">Science</h2>
-          <h2 className="text-xl pr-5">Shop</h2>
-          <h2 className="text-xl pr-5">Corporate</h2>
+        ) : (
+          // code for undrop-down menu
+          <div className="w-screen bg-black py-6 px-6">
+            <div className="flex w-full">
+              <div className="w-1/2">
+                <h1 className="text-white text-xl">CARMELL</h1>
+              </div>
+              <div className="w-1/2 flex justify-end">
+                <h1 className="text-white "onClick={()=>{setMenu(1)}}><CiMenuFries className="h-7 w-7"/></h1>
+              </div>
+            </div>
+            <div>
+            </div>
         </div>
-        <div className="w-1/3 flex justify-end">
-        <CiSearch className="h-6 w-6 flex mx-3"/>
-          <IoBagHandleOutline className="h-6 w-6 flex mx-3"/>
-            {/* <h2 className="text-2xl pr-5 border-white border-2 rounded-md flex px-4">Signin</h2> */}
-            <a href={'/pages/login'}><FaRegUser className="h-5 w-5 mx-3 mt-1"/></a>
-        </div>
-      </div>
-      <div className="pt-24"> {/* Add this div to push the content below the navbar */}
-        {/* Page content goes here */}
+        )
+        }
       </div>
     </>
   );

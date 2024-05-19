@@ -6,28 +6,28 @@ import { RiFacebookCircleLine } from "react-icons/ri";
 function footer() {
   return (
     <div className="w-screen bg-black p-16 h-auto">
-      <div className="flex w-full">
-        <div className="w-1/4">
+      <div className="lg:flex w-full">
+        <div className="lg:w-1/4 lg:py-0 py-6">
           <h1 className="text-white text-4xl">Build by</h1>
           <h1 className="text-white text-4xl">Biology</h1>
         </div>
-        <div className="w-1/4">
+        <div className="lg:w-1/4 lg:py-0 py-4">
           <h1 className=" text-white py-1 text-sm">Carmell Secretome</h1>
           <h1 className=" text-white py-1 text-sm">Ingredient Overview</h1>
           <h1 className=" text-white py-1 text-sm">No Foul 14</h1>
           <h1 className=" text-white py-1 text-sm">Corporate Overview</h1>
           <h1 className=" text-white py-1 text-sm">Press Releases</h1>
         </div>
-        <div className=" w-72">
+        <div className="lg:w-72 lg:py-0 py-4">
           <h1 className=" text-white py-1 text-sm">Terms of Service</h1>
           <h1 className=" text-white py-1 text-sm">Sales Policy</h1>
           <h1 className=" text-white py-1 text-sm">Privacy Policy</h1>
           <h1 className=" text-white py-1 text-sm">Refund Policy</h1>
           <h1 className=" text-white py-1 text-sm">Contact Us</h1>
         </div>
-        <div className="w-1/4 flex">
+        <div className="lg:w-1/4 lg:py-0 py-4">
           <input type='text' placeholder='Email' className="p-2 w-80 h-10" />
-          <button className="bg-white text-black text-center p-2 ml-3 h-10 w-32">Submit</button>
+          <button className="bg-white text-black text-center p-2  h-10 w-32 my-4 ">Submit</button>
         </div>
       </div>
       <div className="flex mt-20">
