@@ -4,7 +4,7 @@ import { RxCross2 } from "react-icons/rx";
 
 
 function Navbar() {
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(null);
   const [menu, setMenu] = useState(0)
   useEffect(() => {
     const handleResize = () => {
@@ -18,6 +18,10 @@ function Navbar() {
       window.removeEventListener('resize', handleResize);
     };
   }, []); // Empty dependency array ensures the effect runs only once when the component mounts
+
+  if (windowWidth === null) {
+    return null
+  }
 
   return (
     <>

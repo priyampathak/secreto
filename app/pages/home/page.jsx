@@ -48,7 +48,7 @@ function Page() {
     }
   };
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [windowWidth, setWindowWidth] = useState(null);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -74,6 +74,10 @@ function Page() {
     autoplay: true,
     autoplaySpeed: 2000, // Adjust autoplay speed as needed (in milliseconds)
   };
+
+  if (windowWidth === null) {
+    return null
+  }
 
   return (
     <>
