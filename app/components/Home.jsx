@@ -123,7 +123,7 @@ function Home() {
             <Image src={serum} height={6000} width={7000} className="" />
           </div>
           <div className="">
-            <h1 className="text-4xl py-4 text-center">Carmell Club</h1>
+            <h1 className="text-3xl py-4 text-center">Carmell Club</h1>
             <ul className="list-disc my-6 text-gray-500 px-8">
               <li className="py-2">
                 The Carmell Club is a community of discerning beauty icons who
@@ -160,7 +160,7 @@ function Home() {
           <div className="p-6">
             <Image src={blackwhite} height={6000} width={7000} className="" />
             <div className="">
-              <h1 className="text-4xl py-6 text-center">
+              <h1 className="text-3xl py-6 text-center">
                 Carmell Secretome
                 <sup className=" text-black font-semibold text-base">
                   <sup className=" font-extrabold text-base">TM</sup>
