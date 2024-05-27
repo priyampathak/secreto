@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { CiMenuFries } from "react-icons/ci";
 import { RxCross2 } from "react-icons/rx";
-
+import { useRouter } from "next/navigation";
 
 function Navbar() {
   const [windowWidth, setWindowWidth] = useState(null);
   const [menu, setMenu] = useState(0)
+  const router = useRouter()
   useEffect(() => {
     const handleResize = () => {
       setWindowWidth(window.innerWidth);
@@ -41,7 +42,7 @@ function Navbar() {
             <div className="w-full flex justify-center my-8">
               <div>
                 <h1 className="text-white text-lg text-center py-2">Science</h1>
-                <h1 className="text-white text-lg text-center py-2">Shop</h1>
+                <button className="text-white text-lg text-center py-2" onClick={()=>{router.push("shop");}}>Shop</button>
                 <h1 className="text-white text-lg text-center py-2">Corporate</h1>
                 <h1 className="text-white text-lg text-center py-2">Cart</h1>
                 <h1 className="text-white text-lg text-center py-2">Profile</h1>

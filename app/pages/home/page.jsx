@@ -19,12 +19,14 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Footer from "@/app/components/Footer";
 import Home from "@/app/components/Home";
+import { useRouter } from "next/navigation";
 
 function Page() {
   const videoRef = useRef(null);
   const [scale, setScale] = useState(1);
   const [marginTop, setMarginTop] = useState(0);
   const [navbarBgColor, setNavbarBgColor] = useState("transparent");
+  const router = useRouter()
 
   const handleScroll = () => {
     const scrollPosition = window.scrollY;
@@ -95,8 +97,8 @@ function Page() {
             <h2 className="text-2xl font-semibold">CARMELL</h2>
           </div>
           <div className="w-1/3 flex justify-center">
+            <button className="text-xl pr-5" onClick={()=>{router.push("shop");}}>Shop</button>
             <h2 className="text-xl pr-5">Science</h2>
-            <h2 className="text-xl pr-5">Shop</h2>
             <h2 className="text-xl pr-5">Corporate</h2>
           </div>
           <div className="w-1/3 flex justify-end">
