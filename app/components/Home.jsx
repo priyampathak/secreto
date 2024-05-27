@@ -25,20 +25,28 @@ function Home() {
     autoplay: true,
     autoplaySpeed: 2000, // Adjust autoplay speed as needed (in milliseconds)
   };
+
+  const carouselImages = [under_eye, body, med_spa, serum, blackwhite];
+
   return (
     <div>
       <Navbarnor className="" style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 9999 }}/>
       <div className="w-screen h-auto overflow-hidden mt-16">
         {/* after nav top section */}
-        <div>
-          <Image
-            src={img}
-            height={500}
-            width={500}
-            alt="top image"
-            className="h-96 w-full"
-          />
-        </div>
+        <div className="w-screen h-auto overflow-hidden mt-8">
+          <Slider {...settings}>
+            {carouselImages.map((image, index) => (
+              <div key={index} className="relative h-96 w-full">
+                <Image
+                  src={image}
+                  layout="fill"
+                  objectFit="cover"
+                  alt={`carousel image ${index + 1}`}
+                />
+              </div>
+            ))}
+          </Slider>
+          </div>
         {/* after nav top section ends*/}
 
         {/* 4 images section starts*/}
@@ -160,7 +168,7 @@ function Home() {
         {/* carmell sectretome section starts */}
         <div className="w-full h-full justify-center mt-10">
           <div className="p-6">
-            <Image src={blackwhite} height={6000} width={7000} className="" />
+            <Image src={blackwhite} height={6000} width={7000} className="pt-24" />
             <div className="">
               <h1 className="text-3xl py-6 text-center">
                 Carmell Secretome
