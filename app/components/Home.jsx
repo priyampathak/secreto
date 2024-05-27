@@ -26,8 +26,8 @@ function Home() {
     autoplaySpeed: 2000, // Adjust autoplay speed as needed (in milliseconds)
   };
   return (
-    <>
-      <Navbarnor />
+    <div>
+      <Navbarnor className="" style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 9999 }}/>
       <div className="w-screen h-auto overflow-hidden mt-16">
         {/* after nav top section */}
         <div>
@@ -145,7 +145,7 @@ function Home() {
                 extends our love and enjoyment of the la dolce vita.
               </li>
             </ul>
-            <div className="flex justify-center">
+            <div className="flex justify-center mb-10">
               <button
                 className=" border-black p-3 px-5 text-black my-4 hover:bg-orange-500 hover:text-white"
                 style={{ borderWidth: "1px" }}
@@ -158,7 +158,7 @@ function Home() {
         {/* carmell club section ends */}
 
         {/* carmell sectretome section starts */}
-        <div className="w-full h-full justify-center ">
+        <div className="w-full h-full justify-center mt-10">
           <div className="p-6">
             <Image src={blackwhite} height={6000} width={7000} className="" />
             <div className="">
@@ -311,7 +311,7 @@ function Home() {
         </div>
         {/* Doctor review ends */}
       </div>
-    </>
+    </div>
   );
 }
 
