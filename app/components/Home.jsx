@@ -31,7 +31,7 @@ function Home() {
   
   return (
     <div>
-      <Navbarnor className="" style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 9999 }}/>
+      <Navbarnor className="" />
       <div className="w-screen h-auto overflow-hidden mt-16">
         {/* after nav top section */}
         <div>
@@ -54,7 +54,7 @@ function Home() {
               </h1>
             </div>
             <div>
-              <div className="w-full px-6 py-1 ">
+              <div className="w-full relative px-6 py-1 ">
                 <Image
                   src={img}
                   height={200}
@@ -64,13 +64,13 @@ function Home() {
                 <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center px-6">
                   <h1
                     className="text-center bg-white bg-opacity-20 w-full p-2 text-lg"
-                    style={{ marginBottom: "-65px" }}
+                    style={{ marginBottom: "5px" }}
                   >
                     FACE & NECK
                   </h1>
                 </div>
               </div>
-              <div className="w-full px-6 py-1">
+              <div className="w-full relative px-6 py-1">
                 <Image
                   src={under_eye}
                   height={200}
@@ -80,13 +80,13 @@ function Home() {
                 <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center px-6">
                   <h1
                     className="text-center bg-white bg-opacity-20 w-full p-2 text-lg"
-                    style={{ marginBottom: "-614px" }}
+                    style={{ marginBottom: "5px" }}
                   >
                     UNDER EYE
                   </h1>
                 </div>
               </div>
-              <div className="w-full px-6 py-1">
+              <div className="w-full relative px-6 py-1">
                 <Image
                   src={body}
                   height={200}
@@ -96,13 +96,13 @@ function Home() {
                 <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center px-6">
                   <h1
                     className="text-center bg-white bg-opacity-20 w-full p-2 text-lg"
-                    style={{ marginBottom: "-1160px" }}
+                    style={{ marginBottom: "5px" }}
                   >
                     BODY
                   </h1>
                 </div>
               </div>
-              <div className="w-full px-6 py-1">
+              <div className="w-full relative px-6 py-1">
                 <Image
                   src={med_spa}
                   height={200}
@@ -112,7 +112,7 @@ function Home() {
                 <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center px-6">
                   <h1
                     className="text-center bg-white bg-opacity-20 w-full p-2 text-lg"
-                    style={{ marginBottom: "-1705px" }}
+                    style={{ marginBottom: "5px" }}
                   >
                     MED SPA
                   </h1>
@@ -305,7 +305,7 @@ function Home() {
                   className="p-4 w-6/6 mx-7 h-72 rounded-md shadow-lg shadow-gray-400 my-2"
                   style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.4)" }}
                 >
-                  <Image src={review.image} height={100} width={100} className=""/>
+                  <Image src={review.image} height={100} width={100} />
                   <p className="my-6 text-gray-400">{review.review}</p>
                   <h1 className="text-gray-400 italic">{review.name}</h1>
                 </div>

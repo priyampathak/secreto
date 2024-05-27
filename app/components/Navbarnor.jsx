@@ -11,7 +11,12 @@ function Navbarnor() {
   const router = useRouter()
   return (
     <>
-      <div className="w-screen overflow-hidden">
+      <div className="w-screen overflow-hidden" style={{position: 'fixed',
+  top: 0,
+  left: 0,
+  zIndex: 1000, // Ensure it's on top of other elements
+  backgroundColor: 'white', // Ensure it has a background
+  boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)'}}>
         <div className={`fixed pt-4 left-0 w-full ${menu === 1 ? 'h-72' : 'h-16'} bg-black`}>
           <div className={`flex px-10 lg:px-20 pb-4 text-white`}>
             <div className="w-1/2 lg:w-1/3">
