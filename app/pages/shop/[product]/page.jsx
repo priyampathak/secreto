@@ -30,7 +30,7 @@ function Page({ params }) {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const res = await fetch(`${apiUrl}/api/products/${params.product}`);
+        const res = await fetch(`/api/products/${params.product}`);
         const responseData = await res.json();
         setProduct(responseData);
       } catch (error) {

@@ -13,6 +13,7 @@ import reviews from "@/app/dummy-rev";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Navbarnor from "./Navbarnor";
 
 function Home() {
   const settings = {
@@ -26,7 +27,8 @@ function Home() {
   };
   return (
     <>
-      <div className="w-screen h-auto overflow-hidden">
+      <Navbarnor />
+      <div className="w-screen h-auto overflow-hidden mt-16">
         {/* after nav top section */}
         <div>
           <Image

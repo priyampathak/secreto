@@ -19,8 +19,8 @@ function Page() {
     // Fetch products from the API
     const fetchProducts = async () => {
       try {
-        const response = await fetch(`${apiUrl}/api/products`);
-        const response2 = await fetch(`${apiUrl}/api/categories`);
+        const response = await fetch(`/api/products`);
+        const response2 = await fetch(`/api/categories`);
         const data = await response.json();
         const data2 = await response2.json()
         console.log(data2)

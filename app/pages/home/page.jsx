@@ -84,7 +84,7 @@ function Page() {
   return (
     <>
       {windowWidth < 1030 ? (
-        <Navbar />
+        <></>
       ) : (
         <div
           className="fixed top-0 pt-4 left-0 w-full flex px-20 pb-4 z-50 text-white"
