@@ -14,6 +14,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Navbarnor from "./Navbarnor";
+import topimg from '@/public/home-mobile/GLEE.png'
 
 function Home() {
   const settings = {
@@ -27,26 +28,21 @@ function Home() {
   };
 
   const carouselImages = [under_eye, body, med_spa, serum, blackwhite];
-
+  
   return (
     <div>
       <Navbarnor className="" style={{ position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 9999 }}/>
       <div className="w-screen h-auto overflow-hidden mt-16">
         {/* after nav top section */}
-        <div className="w-screen h-auto overflow-hidden mt-8">
-          <Slider {...settings}>
-            {carouselImages.map((image, index) => (
-              <div key={index} className="relative h-96 w-full">
-                <Image
-                  src={image}
-                  layout="fill"
-                  objectFit="cover"
-                  alt={`carousel image ${index + 1}`}
-                />
-              </div>
-            ))}
-          </Slider>
-          </div>
+        <div>
+          <Image
+            src={topimg}
+            height={400}
+            width={500}
+            alt="top image"
+            className="h-72 w-full p-4 rounded-sm"
+          />
+        </div>
         {/* after nav top section ends*/}
 
         {/* 4 images section starts*/}
@@ -58,7 +54,7 @@ function Home() {
               </h1>
             </div>
             <div>
-              <div className="w-full relative px-6 py-1 ">
+              <div className="w-full px-6 py-1 ">
                 <Image
                   src={img}
                   height={200}
@@ -68,13 +64,13 @@ function Home() {
                 <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center px-6">
                   <h1
                     className="text-center bg-white bg-opacity-20 w-full p-2 text-lg"
-                    style={{ marginBottom: "5px" }}
+                    style={{ marginBottom: "-65px" }}
                   >
                     FACE & NECK
                   </h1>
                 </div>
               </div>
-              <div className="w-full relative px-6 py-1">
+              <div className="w-full px-6 py-1">
                 <Image
                   src={under_eye}
                   height={200}
@@ -84,13 +80,13 @@ function Home() {
                 <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center px-6">
                   <h1
                     className="text-center bg-white bg-opacity-20 w-full p-2 text-lg"
-                    style={{ marginBottom: "5px" }}
+                    style={{ marginBottom: "-614px" }}
                   >
                     UNDER EYE
                   </h1>
                 </div>
               </div>
-              <div className="w-full relative px-6 py-1">
+              <div className="w-full px-6 py-1">
                 <Image
                   src={body}
                   height={200}
@@ -100,13 +96,13 @@ function Home() {
                 <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center px-6">
                   <h1
                     className="text-center bg-white bg-opacity-20 w-full p-2 text-lg"
-                    style={{ marginBottom: "5px" }}
+                    style={{ marginBottom: "-1160px" }}
                   >
                     BODY
                   </h1>
                 </div>
               </div>
-              <div className="w-full relative px-6 py-1">
+              <div className="w-full px-6 py-1">
                 <Image
                   src={med_spa}
                   height={200}
@@ -116,7 +112,7 @@ function Home() {
                 <div className="absolute top-0 left-0 w-full h-full flex items-end justify-center px-6">
                   <h1
                     className="text-center bg-white bg-opacity-20 w-full p-2 text-lg"
-                    style={{ marginBottom: "5px" }}
+                    style={{ marginBottom: "-1705px" }}
                   >
                     MED SPA
                   </h1>
@@ -309,7 +305,7 @@ function Home() {
                   className="p-4 w-6/6 mx-7 h-72 rounded-md shadow-lg shadow-gray-400 my-2"
                   style={{ boxShadow: "0 0 10px rgba(0, 0, 0, 0.4)" }}
                 >
-                  <Image src={review.image} height={100} width={100} />
+                  <Image src={review.image} height={100} width={100} className=""/>
                   <p className="my-6 text-gray-400">{review.review}</p>
                   <h1 className="text-gray-400 italic">{review.name}</h1>
                 </div>
