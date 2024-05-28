@@ -20,12 +20,12 @@ function Page({ params }) {
   const router = useRouter();
   const [product, setProduct] = useState();
   const [selectedSizeIndex, setSelectedSizeIndex] = useState(null);
+  const [selectedPrice, setSelectedPrice] = useState(null);
   const [itemCount, setItemCount] = useState(1);
   const { data: session, status } = useSession();
   const [cart, setCart] = useState({ userId: null, cartItems: [] });
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showErrorMessage, setShowErrorMessage] = useState(false);
-
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -43,9 +43,8 @@ function Page({ params }) {
 
   useEffect(() => {
     // Save session data to local storage
-    localStorage.setItem('session', JSON.stringify(session));
+    localStorage.setItem("session", JSON.stringify(session));
   }, [session]);
-
 
   const handleAddToCart = () => {
     if (selectedSizeIndex !== null) {
@@ -57,20 +56,34 @@ function Page({ params }) {
       };
   
       // Retrieve existing cart from local storage
-      const existingCart = JSON.parse(localStorage.getItem('cart')) || { cartItems: [] };
+      const existingCart = JSON.parse(localStorage.getItem("cart")) || {
+        cartItems: [],
+      };
   
-      // Update cart state with new or existing cart item
-      const updatedCart = { cartItems: [...existingCart.cartItems, cartItem] };
-      setCart(updatedCart);
+      const existingItemIndex = existingCart.cartItems.findIndex(
+        (item) => item.productId === cartItem.productId && item.size === cartItem.size
+      );
   
-      // Save updated cart data to storage
-      localStorage.setItem('cart', JSON.stringify(updatedCart));
+      if (existingItemIndex !== -1) {
+        // If item already exists, display alert
+        alert("This item is already in your cart.");
+      } else {
+        // Otherwise, add the new item to the cart
+        existingCart.cartItems.push(cartItem);
   
-      // Display success message
-      setShowSuccessMessage(true);
-      setTimeout(() => setShowSuccessMessage(false), 2000);
+        // Update cart state with new cart items
+        const updatedCart = { cartItems: existingCart.cartItems };
+        setCart(updatedCart);
   
-      console.log(cartItem);
+        // Save updated cart data to storage
+        localStorage.setItem("cart", JSON.stringify(updatedCart));
+  
+        // Display success message
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 2000);
+  
+        // console.log("Cart Item Added:", cartItem);
+      }
     } else {
       // Display error message
       setShowErrorMessage(true);
@@ -78,27 +91,31 @@ function Page({ params }) {
     }
   };
   
+
   const handleQuantityChange = (amount) => {
     setItemCount(Math.max(1, itemCount + amount));
   };
-  
+
   const handleSizeSelection = (index) => {
     setSelectedSizeIndex(index);
+    setSelectedPrice(product.sizes[index].price);
   };
 
-  const handleCheckout = ()=>{
+  const handleCheckout = () => {
     // Retrieve existing cart from local storage
-  const existingCart = JSON.parse(localStorage.getItem('cart')) || { cartItems: [] };
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || {
+      cartItems: [],
+    };
 
-  if (existingCart.cartItems.length > 0) {
-    // Proceed to checkout only if there are items in the cart
-    router.push('/pages/cart');
-  } else {
-    // Display error message indicating the cart is empty
-    setShowErrorMessage(true);
-    setTimeout(() => setShowErrorMessage(false), 2000);
-  }
-  }
+    if (existingCart.cartItems.length > 0) {
+      // Proceed to checkout only if there are items in the cart
+      router.push("/pages/cart");
+    } else {
+      // Display error message indicating the cart is empty
+      setShowErrorMessage(true);
+      setTimeout(() => setShowErrorMessage(false), 2000);
+    }
+  };
 
   if (!product) {
     return <Loading />;
@@ -187,7 +204,9 @@ function Page({ params }) {
                 </h1>
               </div>
               <hr className="w-full my-4" />
-              <h1 className="text-2xl py-4 text-gray-500">Cost: ${product.min_cost}</h1>
+              <h1 className="text-2xl py-4 text-gray-500">
+                Cost: ${selectedPrice !== null ? selectedPrice : product.min_cost}
+              </h1>
               <div className="flex flex-wrap gap-4 py-6">
                 {product.sizes.map((size, index) => (
                   <button
@@ -209,15 +228,21 @@ function Page({ params }) {
               <hr className="w-full my-4" />
               <div className="flex">
                 <div className="flex pr-4">
-                  <button className="pt-1 h-4 w-4 pr-2"><FaRegHeart /></button>
+                  <button className="pt-1 h-4 w-4 pr-2">
+                    <FaRegHeart />
+                  </button>
                   <h1 className="px-2">Wishlist</h1>
                 </div>
                 <div className="flex pr-4">
-                  <button className="pt-1 h-4 w-4 pr-2"><IoMdGitCompare /></button>
+                  <button className="pt-1 h-4 w-4 pr-2">
+                    <IoMdGitCompare />
+                  </button>
                   <h1 className="px-2">Compare</h1>
                 </div>
                 <div className="flex pr-4">
-                  <button className="pt-1 h-4 w-4 pr-2"><IoMdShare /></button>
+                  <button className="pt-1 h-4 w-4 pr-2">
+                    <IoMdShare />
+                  </button>
                   <h1 className="px-2">Share</h1>
                 </div>
               </div>
@@ -251,34 +276,30 @@ function Page({ params }) {
                   </button>
                 </div>
               </div>
-              <div className="pb-6">
-
               {showSuccessMessage && (
-        <h1 className=" text-green-600">Items added successfully!</h1>
-      )}
-
-              {/* Error message */}
-              {showErrorMessage && (
-                <h1 className=" text-red-400">Add Item to cart first!</h1>
+                <div className="mt-4 text-green-500">Item added to cart successfully!</div>
               )}
-                <button className="lg:py-4 lg:px-44 px-36 py-4 bg-gray-300" onClick={()=>{handleCheckout()}}>
+              {showErrorMessage && (
+                <div className="mt-4 text-red-500">
+                  Please select a size or your cart is empty.
+                </div>
+              )}
+              <button className="lg:py-4 lg:px-44 px-36 py-4 bg-gray-300" onClick={()=>{handleCheckout()}}>
                   Checkout
                 </button>
-              </div>
-              <hr className="w-full my-4" />
-              <div className="border-gray-300 py-4" style={{ borderWidth: '1px' }}>
-                <h1 className="text-center">Payment options available</h1>
-                <div className="flex justify-center my-4">
-                  <h1 className="text-center mx-2"><RiVisaLine className="h-10 w-10" /></h1>
-                  <h1 className="text-center mx-2"><FaCcMastercard className="h-10 w-10" /></h1>
-                  <h1 className="text-center mx-2"><FaApplePay className="h-10 w-10" /></h1>
-                </div>
+              <hr className="w-full my-6" />
+              <h1 className="text-xl">Guaranteed Safe Checkout</h1>
+              <div className="py-4 flex gap-4">
+                <RiVisaLine size={40} />
+                <FaCcMastercard size={40} />
+                <FaApplePay size={40} />
               </div>
             </div>
           </div>
-          
         </div>
-        <div className=" w-full px-2">
+      </div>
+      <div className="flex flex-wrap gap-4">
+      <div className=" w-full px-2">
         <Dropdown title="Benefits" paragraph={product.benefits}/>
         <Dropdown title="Ingredients" paragraph={product.ingredients}/>
         <Dropdown title="Instructions" paragraph={product.instructions}/>

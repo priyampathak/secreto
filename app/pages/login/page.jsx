@@ -2,19 +2,24 @@
 // pages/index.js
 import React, { useEffect, useState } from 'react'
 import { signIn, signOut, useSession } from 'next-auth/react'
-
+import { useRouter } from "next/navigation";
 import Navbarnor from '@/app/components/Navbarnor'
 import Navbar from '@/app/components/Navbar'
 import { sendError } from 'next/dist/server/api-utils'
 
 function Page() {
   const { data: session, status } = useSession()
+  const router = useRouter();
+
+
+
   if (status === 'loading') {
     return null
   }
-  
+
   return (
     <> 
+    <Navbarnor />
       <div className="w-screen flex h-screen justify-center items-center bg-gray-200 shadow-gray-400 shadow-lg">
       <div className="w-screen flex justify-center">
         {/* if user not logged in */}

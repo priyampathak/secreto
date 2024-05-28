@@ -102,8 +102,8 @@ function Page() {
             <h2 className="text-xl pr-5">Corporate</h2>
           </div>
           <div className="w-1/3 flex justify-end">
-            <CiSearch className="h-6 w-6 flex mx-3" />
-            <IoBagHandleOutline className="h-6 w-6 flex mx-3" />
+            {/* <CiSearch className="h-6 w-6 flex mx-3" /> */}
+            <IoBagHandleOutline className="h-6 w-6 flex mx-3" onClick={()=>{router.push('/pages/cart')}}/>
             {/* <h2 className="text-2xl pr-5 border-white border-2 rounded-md flex px-4">Signin</h2> */}
             <a href={"/pages/login"}>
               <FaRegUser className="h-5 w-5 mx-3 mt-1" />
