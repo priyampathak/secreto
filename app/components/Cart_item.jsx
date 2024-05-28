@@ -10,7 +10,7 @@ function CartItem({ price, quantity, img, product_name, onIncrement, onDecrement
         <div className="w-20 lg:w-1/5 lg:flex h-auto">
           <img src={img} height={100} width={100} alt='img' />
           <div className="flex items-center">
-            <div className="text-gray-500 text-sm ">
+            <div className="text-gray-500 text-sm">
               {product_name}
             </div>
           </div>
@@ -38,7 +38,7 @@ function CartItem({ price, quantity, img, product_name, onIncrement, onDecrement
             >
               -
             </button>
-            <h1 className="text-gray-500 text-sm text-center px-3">
+            <h1 className="text-gray-500 text-sm text-center px-2 lg:px-3">
               {quantity}
             </h1>
             <button
@@ -57,11 +57,12 @@ function CartItem({ price, quantity, img, product_name, onIncrement, onDecrement
             </h1>
           </div>
         </div>
-        <div className=" flex h-auto">
-          <div className="flex items-center justify-center w-full text-red-700">
-            <button onClick={onRemove}><MdDelete /></button>
+        
+      </div>
+      <div className=" h-auto">
+          <div className="flex items-center w-full text-red-700 py-2">
+            <button onClick={onRemove}>Remove</button>
           </div>
-        </div>
       </div>
       <hr className="my-6"></hr>
     </div>
