@@ -120,7 +120,7 @@ function Page() {
                 <div className="w-1/5 text-center font-sans text-black" style={{ fontWeight: 600 }}>Size</div>
                 <div className="w-1/5 text-center font-sans text-black" style={{ fontWeight: 600 }}>Price</div>
                 <div className="w-1/5 text-center font-sans text-black" style={{ fontWeight: 600 }}>Quantity</div>
-                <div className="w-1/5 text-center font-sans text-black" style={{ fontWeight: 600 }}>Total Price</div>
+                <div className="w-1/5 text-center font-sans text-black" style={{ fontWeight: 600 }}>Total</div>
               </div>
 
               {cartItems.map((item, index) => {
