@@ -6,6 +6,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "@/app/components/Loading";
 import { useRouter } from "next/navigation";
 import img from '@/public/products/Face & Neck/Products/ReGenerative Elixir Square/Regenerative Elixir Square Render 2.jpg';
+import Footer from "@/app/components/Footer";
 
 const apiUrl = process.env.API_BASE_URL;
 
@@ -29,6 +30,7 @@ function Page() {
           acc[category._id] = category.category_name;
           return acc;
         }, {}));
+        setLoading(false);
       } catch (error) {
         console.error("Error fetching products:", error);
       } finally {
@@ -67,7 +69,7 @@ function Page() {
             <h1 className="text-2xl font-light text-gray-700 px-10 lg:px-0">
               {categoryId}
             </h1>
-            <div className="flex w-screen h-auto flex-wrap">
+            <div className="flex w-full h-auto flex-wrap py-10">
               {categorizedProducts[categoryId].map(product => (
                 <div key={product._id} className="px-2 py-2">
                   <Image
@@ -123,7 +125,9 @@ function Page() {
             </div>
           </div>
         ))}
+        
       </div>
+      
     </>
   );
 }

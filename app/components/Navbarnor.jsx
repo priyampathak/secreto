@@ -51,8 +51,8 @@ function Navbarnor() {
             (
               <div className="w-full h-full bg-black flex justify-center pt-8">
                 <div>
-                  <h2 className="text-xl text-center text-white py-2" onClick={()=>{router.push(`/pages/shop`);}}>Shop</h2>
-                  <h2 className="text-xl text-center text-white py-2">Cart</h2>
+                  <h1 className="text-xl text-center text-white py-2" onClick={()=>{router.push(`/pages/shop`);}}>Shop</h1>
+                  <h1 className="text-xl text-center text-white py-2" onClick={()=>{router.push('/pages/cart')}}>Cart</h1>
                   <h2 className="text-xl text-center text-white py-2">Science</h2>
                   <h2 className="text-xl text-center text-white py-2">Corporate</h2>
                   <a href={"/pages/login"}><h2 className="text-xl text-center text-white py-2">Profile</h2></a>

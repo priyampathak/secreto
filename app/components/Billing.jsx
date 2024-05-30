@@ -85,6 +85,7 @@ function Billing({ sub }) {
           price: item.price
         }));
       }).flat(); 
+
       console.log("pro are",products)
       let response = await fetch("/api/orders",{
         method:'POST',
@@ -94,13 +95,13 @@ function Billing({ sub }) {
           products: products,
           totalAmount: sub,
           formData: formData,
-          paymentStatus: 'paid', // You can set the payment status here
+          paymentStatus: "Pass", // You can set the payment status here
           subTotal: sub,
-          createdAt: ""
+          card: "112"
         })
         
       })
-      if(response.status == 200){
+      if(response.status == 201){
         alert("created")
       }else{
         alert("not created")
@@ -136,7 +137,7 @@ function Billing({ sub }) {
             required
           />
         </div>
-        <div className="flex flex-wrap w-screen">
+        <div className="flex flex-wrap w-full">
           <input
             type="text"
             name="phone"
@@ -160,7 +161,7 @@ function Billing({ sub }) {
           />
           <br />
         </div>
-        <div className="flex flex-wrap w-screen">
+        <div className="flex flex-wrap w-full">
           <select
             className="p-2 mx-1 my-2 border-black w-72"
             style={{ borderWidth: "1px" }}
@@ -183,6 +184,9 @@ function Billing({ sub }) {
           <br />
         </div>
         <h1 className="my-1">Shipping details</h1>
+        <div className="w-full flex flex-wrap">
+
+        
         <input
           type="text"
           name="house"
@@ -216,6 +220,7 @@ function Billing({ sub }) {
           required
         />
         <br />
+        </div>
         <div className="my-4 w-full flex justify-center">
           <button className="bg-orange-400 text-white p-2" onClick={handleSubmit}>
             Proceed To Payment

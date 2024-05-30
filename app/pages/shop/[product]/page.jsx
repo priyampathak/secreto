@@ -124,7 +124,7 @@ function Page({ params }) {
   return (
     <>
       <Navbarnor />
-      <div className="w-screen h-auto lg:px-20 py-20">
+      <div className="w-screen h-auto px-2 lg:px-20 py-20">
         <div
           className="py-10 lg:py-20 flex"
           onClick={() => {
@@ -288,17 +288,22 @@ function Page({ params }) {
                   Checkout
                 </button>
               <hr className="w-full my-6" />
-              <h1 className="text-xl">Guaranteed Safe Checkout</h1>
-              <div className="py-4 flex gap-4">
-                <RiVisaLine size={40} />
-                <FaCcMastercard size={40} />
-                <FaApplePay size={40} />
+             
+              <div className="border-gray-300 py-4" style={{ borderWidth: '1px' }}>
+                <h1 className="text-center">Payment options available</h1>
+                <div className="flex justify-center my-4">
+                  <h1 className="text-center mx-2"><RiVisaLine className="h-10 w-10" /></h1>
+                  <h1 className="text-center mx-2"><FaCcMastercard className="h-10 w-10" /></h1>
+                  <h1 className="text-center mx-2"><FaApplePay className="h-10 w-10" /></h1>
+                </div>
               </div>
             </div>
+
           </div>
+          
         </div>
       </div>
-      <div className="flex flex-wrap gap-4">
+      <div className="flex w-screen flex-wrap ">
       <div className=" w-full px-2">
         <Dropdown title="Benefits" paragraph={product.benefits}/>
         <Dropdown title="Ingredients" paragraph={product.ingredients}/>
@@ -306,7 +311,7 @@ function Page({ params }) {
         </div>
         
       </div>
-      <Footer />
+      <Footer className="w-full"/>
     </>
   );
 }

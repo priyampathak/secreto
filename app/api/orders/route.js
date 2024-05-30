@@ -13,11 +13,24 @@ export async function GET(req) {
 }
 
 export async function POST(req) {
-  await connectDB();
-  const payload=await req.json()
-  let order = new Order(payload)
-  const result = await order.save()
-  return NextResponse.json({result, sucess: true})
+  const payload = await req.json();
+  let order = new Order(payload);
+  try {
+    const result = await order.save();
+    return new Response(JSON.stringify({ result, success: true }), {
+      status: 201,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  } catch (error) {
+    return new Response(JSON.stringify({ error: error.message, success: false }), {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
 }
 
 export async function PUT(req) {

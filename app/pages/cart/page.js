@@ -115,7 +115,7 @@ function Page() {
             <p>Your cart has nothing.</p>
           ) : (
             <>
-              <div className="flex w-full font-extrabold">
+              <div className=" hidden lg:flex w-full font-extrabold">
                 <div className="w-1/5 font-sans text-black" style={{ fontWeight: 600 }}>Product</div>
                 <div className="w-1/5 text-center font-sans text-black" style={{ fontWeight: 600 }}>Size</div>
                 <div className="w-1/5 text-center font-sans text-black" style={{ fontWeight: 600 }}>Price</div>
