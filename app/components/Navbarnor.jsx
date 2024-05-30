@@ -32,7 +32,7 @@ function Navbarnor() {
               <IoBagHandleOutline className="h-6 w-6 flex mx-3" onClick={()=>{router.push('/pages/cart')}}/>
               {/* <h2 className="text-2xl pr-5 border-white border-2 rounded-md flex px-4">Signin</h2> */}
               
-                <FaRegUser className="h-5 w-5 mx-3 mt-1" onClick={()=>{router.push('/pages/login')}}/>
+                <FaRegUser className="h-5 w-5 mx-3 mt-1" onClick={()=>{router.push('/pages/auth')}}/>
               
             </div>
             <div className="lg:hidden w-1/2 flex justify-end">
@@ -55,7 +55,7 @@ function Navbarnor() {
                   <h1 className="text-xl text-center text-white py-2" onClick={()=>{router.push('/pages/cart')}}>Cart</h1>
                   <h2 className="text-xl text-center text-white py-2">Science</h2>
                   <h2 className="text-xl text-center text-white py-2">Corporate</h2>
-                  <a href={"/pages/login"}><h2 className="text-xl text-center text-white py-2">Profile</h2></a>
+                  <a href={"/pages/auth"}><h2 className="text-xl text-center text-white py-2">Profile</h2></a>
                 </div>
               </div>
             ):(<></>)

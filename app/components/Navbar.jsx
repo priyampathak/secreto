@@ -45,7 +45,7 @@ function Navbar() {
                 <button className="text-white text-lg text-center py-2" onClick={()=>{router.push("shop");}}>Shop</button>
                 <h1 className="text-white text-lg text-center py-2">Corporate</h1>
                 <h1 className="text-white text-lg text-center py-2">Cart</h1>
-                <h1 className="text-white text-lg text-center py-2">Profile</h1>
+                <h1 className="text-white text-lg text-center py-2" onClick={()=>{router.push('/pages/cart')}}>Profile</h1>
               </div>
             </div>
         </div>
