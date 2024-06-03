@@ -15,7 +15,6 @@ function Billing({ sub, cartItems, productInfo }) {
     zip: "",
   });
   console.log("uit",productInfo)
-  const [qn, setqn] = useState(3);
 
   const [cart, setCart] = useState([{}]);
 
@@ -53,7 +52,8 @@ function Billing({ sub, cartItems, productInfo }) {
         method: 'POST',
         body: JSON.stringify({
           price: sub,
-          quantity:totalQuantity
+          quantity:totalQuantity,
+          email:email
         }),
         headers: {
           'Content-Type': 'application/json'
