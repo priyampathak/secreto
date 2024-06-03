@@ -28,10 +28,10 @@ function Page() {
       case 'settings':
         return <Settings />;
       default:
-        return <div>
+        return <div className="h-screen my-4">
             <h1 className="text-2xl">Welcome Back</h1>
             <h1>{session?.user?.name}</h1>
-            <UserInit />
+            <UserInit className=" h-full"/>
           </div>;
     }
   };

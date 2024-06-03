@@ -5,7 +5,7 @@ import { MdOutlineSettings } from "react-icons/md";
 
 function UserInit() {
   return (
-    <section className="text-gray-600 body-font">
+    <section className="text-gray-600 h-full body-font"style={{  overflowY: 'scroll' }}>
   <div className="container px-5 py-24 mx-auto">
     <div className="flex flex-col text-center w-full mb-20">
       <h2 className="text-xs text-orange-700 tracking-widest font-medium title-font mb-1">CARMEL WELCOMES YOU</h2>

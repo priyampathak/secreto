@@ -279,7 +279,7 @@ function Profile() {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full" style={{  overflowY: 'scroll' }}>
       <h1 className="text-2xl py-6 text-center">Manage Your Profile</h1>
       <h1 className="text-center">Personal Information</h1>
       <div className="flex flex-wrap my-6 justify-center">

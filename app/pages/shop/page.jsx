@@ -94,7 +94,7 @@ function Page() {
                       >
                         Sold Out
                       </button>
-                    ) : product.type === "prelaunched" ? (
+                    ) : product.type === "not for sale online" ? (
                       <button
                         className="mt-2 w-5/6 border-black h-14 hover:bg-orange-400 hover:text-white hover:border-white"
                         style={{ borderWidth: "1px" }}
@@ -102,7 +102,7 @@ function Page() {
                       >
                         Learn More
                       </button>
-                    ) : product.type === "not for sale online" ? (
+                    ) : product.type === "prelaunched" ? (
                       <button
                         className="mt-2 w-5/6 border-black h-14 bg-gray-400 text-white cursor-not-allowed"
                         style={{ borderWidth: "1px" }}

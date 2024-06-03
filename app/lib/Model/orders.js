@@ -25,7 +25,9 @@ const OrderSchema = new Schema({
   },
   paymentStatus: { type: String },
   subTotal: { type: Number},
-  card: { type: String } 
+  card: { type: String },
+  order_status: { type: String },
+  order_date: { type: String },
 });
 
 // Define or retrieve the model with autoCreate option

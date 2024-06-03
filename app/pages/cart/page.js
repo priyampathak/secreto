@@ -152,10 +152,9 @@ function Page() {
 
 
 
-          {cartItems.length > 0 && total > 0 &&  (
-          
-            <Billing sub={total}/>
-        )}
+          {cartItems.length > 0 && total > 0 && (
+            <Billing sub={total} cartItems={cartItems} productInfo={productInfo} />
+          )}
       </div>
     </>
   );

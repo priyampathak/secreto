@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useSession } from 'next-auth/react';
 
-function Billing({ sub }) {
+function Billing({ sub, cartItems, productInfo }) {
   const { data: session } = useSession();
   const [formData, setFormData] = useState({
     firstName: "",
@@ -14,6 +14,8 @@ function Billing({ sub }) {
     landmark: "",
     zip: "",
   });
+  console.log("uit",productInfo)
+  const [qn, setqn] = useState(3);
 
   const [cart, setCart] = useState([{}]);
 
@@ -35,7 +37,36 @@ function Billing({ sub }) {
 
   console.log("cart is", cart)
   
+  const checkout = async () => {
+    try {
+      const products = cart.map((items) => {
+        const cartItems = JSON.parse(items).cartItems; // Parse the JSON string to access the cartItems array
+        return cartItems.map((item) => ({ // Returning an object inside map
+          productId: item.productId,
+          size: item.size,
+          quantity: item.quantity,
+          price: item.price
+        }));
+      }).flat(); 
+      const totalQuantity = products.reduce((acc, product) => acc + product.quantity, 0);
+      let response = await fetch("/api/payment", {
+        method: 'POST',
+        body: JSON.stringify({
+          price: sub,
+          quantity:totalQuantity
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
   
+      const resdata = await response.json();
+      window.location.href=resdata.url
+      console.log(resdata);
+    } catch (error) {
+      console.log({ msg: error.message });
+    }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -66,14 +97,6 @@ function Billing({ sub }) {
   };
 
 
-  // const handleSubmit = () => {
-  //   if (validateForm()) {
-  //     console.log("Form Data:", formData);
-  //     console.log("Cart Data:", cart);
-  //     console.log("Subtotal:", sub);
-  //   }
-  // };
-
   const handleSubmit = async () => {
     if(validateForm()){
       const products = cart.map((items) => {
@@ -85,6 +108,14 @@ function Billing({ sub }) {
           price: item.price
         }));
       }).flat(); 
+      const totalQuantity = products.reduce((acc, product) => acc + product.quantity, 0);
+    
+
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = String(today.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+      const day = String(today.getDate()).padStart(2, '0');
+      const currentDate = `${year}-${month}-${day}`;
 
       console.log("pro are",products)
       let response = await fetch("/api/orders",{
@@ -97,7 +128,9 @@ function Billing({ sub }) {
           formData: formData,
           paymentStatus: "Pass", // You can set the payment status here
           subTotal: sub,
-          card: "112"
+          card: "112",
+          order_status: "Ordered",
+          order_date: currentDate
         })
         
       })
@@ -222,7 +255,7 @@ function Billing({ sub }) {
         <br />
         </div>
         <div className="my-4 w-full flex justify-center">
-          <button className="bg-orange-400 text-white p-2" onClick={handleSubmit}>
+          <button className="bg-orange-400 text-white p-2" onClick={checkout}>
             Proceed To Payment
           </button>
         </div>
