@@ -53,7 +53,7 @@ function Billing({ sub, cartItems, productInfo }) {
         body: JSON.stringify({
           price: sub,
           quantity:totalQuantity,
-          email:email
+          
         }),
         headers: {
           'Content-Type': 'application/json'
